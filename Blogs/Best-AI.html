@@ -27,122 +27,419 @@
 </script>
 
 <style>
+/* =========================================================
+   THEMASTERAI — PREMIUM DARK SAAS DESIGN SYSTEM
+   Single-file HTML • Responsive • Accessible motion
+========================================================= */
 :root {
-  --primary: #7657ef;
-  --text: #172033;
-  --muted: #667085;
-  --border: #e7eaf0;
-  --soft: #f6f8fc;
+  color-scheme: dark;
+  --bg: #070b14;
+  --bg-soft: #0b1120;
+  --surface: rgba(15, 23, 42, .78);
+  --surface-solid: #0f172a;
+  --surface-hover: rgba(24, 35, 60, .94);
+  --primary: #8b78ff;
+  --primary-strong: #6d5dfc;
+  --cyan: #45d5f5;
+  --text: #eef2ff;
+  --muted: #a4afc5;
+  --border: rgba(157, 174, 209, .17);
+  --shadow: 0 22px 70px rgba(0, 0, 0, .28);
+  --radius: 20px;
+  --container: 1120px;
 }
+
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 90px; }
-body {
+html { scroll-behavior: smooth; scroll-padding-top: 100px; }
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>TheMasterAI - Discover the Best AI Tools for Every Task</title>
-<meta name="description" content="Discover AI tools for writing, image generation, SEO, video creation, coding, and productivity. Explore TheMasterAI to find software for your needs.">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://themasterai.github.io/">
-<meta name="theme-color" content="#101827">
-
-<meta property="og:type" content="website">
-<meta property="og:title" content="TheMasterAI - Discover the Best AI Tools">
-<meta property="og:description" content="Explore AI tools for writing, design, SEO, video, coding, and productivity.">
-<meta property="og:url" content="https://themasterai.github.io/">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "TheMasterAI",
-  "url": "https://themasterai.github.io/",
-  "description": "Discover AI tools for writing, image generation, SEO, video, coding, and productivity."
-}
-</script>
-
-<style>
-:root {
-  --primary: #7657ef;
-  --text: #172033;
-  --muted: #667085;
-  --border: #e7eaf0;
-  --soft: #f6f8fc;
-}
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 90px; }
 body {
   margin: 0;
   color: var(--text);
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.8;
+  background:
+    radial-gradient(ellipse at 8% 0%, rgba(109, 93, 252, .13), transparent 34rem),
+    radial-gradient(ellipse at 95% 30%, rgba(69, 213, 245, .07), transparent 30rem),
+    var(--bg);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
+
+::selection { color: #fff; background: rgba(109, 93, 252, .72); }
 a { color: inherit; text-decoration: none; }
-.container { width: min(1100px, calc(100% - 36px)); margin: auto; }
+button, a { -webkit-tap-highlight-color: transparent; }
+
+a:focus-visible {
+  outline: 3px solid var(--cyan);
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
+.container {
+  width: min(var(--container), calc(100% - 40px));
+  margin-inline: auto;
+}
+
 header {
-  position: sticky; top: 0; z-index: 10;
-  background: #fffffffa; border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(7, 11, 20, .78);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
+
 .header-inner {
-  min-height: 72px; display: flex; align-items: center;
-  justify-content: space-between; gap: 20px;
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
 }
-.logo { font-size: 23px; font-weight: 800; letter-spacing: -1px; }
-.logo span { color: var(--primary); }
-nav { display: flex; gap: 20px; flex-wrap: wrap; }
-nav a { font-size: 13px; color: var(--muted); font-weight: bold; }
-nav a:hover { color: var(--primary); }
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  font-size: 23px;
+  font-weight: 850;
+  letter-spacing: -1.1px;
+  white-space: nowrap;
+}
+
+.logo span {
+  margin-left: 2px;
+  color: transparent;
+  background: linear-gradient(110deg, var(--primary), var(--cyan));
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  padding: 8px 12px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 650;
+  transition: color .2s ease, background .2s ease, border-color .2s ease;
+}
+
+nav a:hover {
+  color: #fff;
+  background: rgba(139, 120, 255, .1);
+  border-color: var(--border);
+}
+
 .hero {
-  padding: 85px 0; text-align: center;
-  background: radial-gradient(circle at 80% 20%, #e9e3ff, transparent 38%), #f8f9ff;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(76px, 10vw, 128px) 0 clamp(82px, 10vw, 130px);
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(109, 93, 252, .24), transparent 55%),
+    linear-gradient(180deg, rgba(13, 19, 36, .56), rgba(7, 11, 20, .12));
 }
-.hero-content { max-width: 850px; }
-.eyebrow { color: var(--primary); font-size: 11px; font-weight: 800; letter-spacing: 2px; }
-h1, h2, h3 { line-height: 1.3; }
-h1 { font-size: clamp(35px, 6vw, 58px); line-height: 1.15; letter-spacing: -2px; }
-.hero p:not(.eyebrow) { max-width: 700px; margin: 20px auto 28px; color: var(--muted); }
+
+.hero::before, .hero::after {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  width: 340px;
+  height: 340px;
+  border: 1px solid rgba(139, 120, 255, .13);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero::before {
+  top: -220px;
+  left: calc(50% - 170px);
+  box-shadow: 0 0 0 35px rgba(139,120,255,.025),
+              0 0 0 75px rgba(139,120,255,.02);
+}
+
+.hero::after {
+  width: 180px;
+  height: 180px;
+  right: 8%;
+  bottom: -130px;
+  border-color: rgba(69,213,245,.15);
+}
+
+.hero-content { max-width: 900px; }
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 13px;
+  color: #b7adff;
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 20px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--primary), var(--cyan));
+}
+
+h1, h2, h3 { line-height: 1.25; }
+
+h1 {
+  max-width: 850px;
+  margin: 12px auto 0;
+  font-size: clamp(39px, 6.5vw, 70px);
+  line-height: 1.08;
+  letter-spacing: -3.2px;
+  font-weight: 850;
+  text-wrap: balance;
+}
+
+.hero p:not(.eyebrow) {
+  max-width: 700px;
+  margin: 24px auto 31px;
+  color: var(--muted);
+  font-size: clamp(15px, 1.8vw, 18px);
+  line-height: 1.9;
+}
+
 .button {
-  display: inline-block; padding: 12px 20px; border-radius: 9px;
-  background: var(--primary); color: white; font-weight: bold; font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 48px;
+  padding: 12px 21px;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 12px;
+  color: #fff;
+  background: linear-gradient(120deg, var(--primary-strong), #8b5cf6 58%, #6478ff);
+  box-shadow: 0 9px 28px rgba(109, 93, 252, .25),
+              inset 0 1px 0 rgba(255,255,255,.2);
+  font-size: 13px;
+  font-weight: 800;
+  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
 }
-.button:hover { background: #5b40ce; }
-section { padding: 65px 0; }
-.soft { background: var(--soft); }
+
+.button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+  box-shadow: 0 14px 34px rgba(109, 93, 252, .34),
+              inset 0 1px 0 rgba(255,255,255,.22);
+}
+
+.button:active { transform: translateY(0); }
+
+section { padding: clamp(58px, 7vw, 86px) 0; }
+
+.soft {
+  position: relative;
+  background: linear-gradient(180deg, rgba(13, 19, 36, .75), rgba(10, 16, 30, .88));
+  border-top: 1px solid rgba(157,174,209,.07);
+  border-bottom: 1px solid rgba(157,174,209,.07);
+}
+
 .article { max-width: 850px; }
-.article h2 { margin: 30px 0 12px; font-size: clamp(25px, 3vw, 32px); }
-.article p, .article li { color: #505b70; font-size: 15px; line-height: 1.95; }
-.article strong { color: var(--text); }
-.heading { max-width: 720px; text-align: center; margin: 0 auto 32px; }
-.heading h2 { font-size: clamp(28px, 4vw, 38px); }
-.heading p { color: var(--muted); }
-.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
-.card { padding: 23px; border: 1px solid var(--border); border-radius: 15px; background: white; }
-.card h3 { font-size: 17px; margin-bottom: 8px; }
-.card p { font-size: 13px; line-height: 1.9; color: var(--muted); }
-.icon { font-size: 23px; color: var(--primary); }
-.article ul { padding-left: 23px; }
-.article li { margin-bottom: 12px; }
-footer { padding: 35px 0; background: #101827; color: white; text-align: center; }
-footer p { color: #b7c0d0; font-size: 12px; }
-footer .small { color: #8f9bb0; font-size: 11px; }
-@media (max-width: 750px) {
-  .header-inner { padding: 13px 0; flex-direction: column; }
-  nav { justify-content: center; gap: 10px 16px; }
+
+.article h2 {
+  margin: 34px 0 13px;
+  font-size: clamp(25px, 3.2vw, 34px);
+  letter-spacing: -.9px;
+  font-weight: 800;
+}
+
+.article h2:first-of-type { margin-top: 10px; }
+
+.article p, .article li {
+  color: #aeb9ce;
+  font-size: 15px;
+  line-height: 1.95;
+}
+
+.article p { margin: 0 0 17px; }
+
+.article strong {
+  color: #f0f3ff;
+  font-weight: 750;
+}
+
+.article ul {
+  padding-left: 23px;
+  margin: 18px 0 24px;
+}
+
+.article li {
+  margin-bottom: 10px;
+  padding-left: 4px;
+}
+
+.article li::marker { color: var(--primary); }
+
+.heading {
+  max-width: 740px;
+  text-align: center;
+  margin: 0 auto 38px;
+}
+
+.heading h2 {
+  margin: 8px 0 13px;
+  font-size: clamp(29px, 4vw, 42px);
+  letter-spacing: -1.5px;
+  font-weight: 850;
+  text-wrap: balance;
+}
+
+.heading p:not(.eyebrow) {
+  max-width: 650px;
+  margin: 0 auto;
+  color: var(--muted);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.card {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  padding: 26px 24px 25px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: linear-gradient(145deg, rgba(20, 30, 52, .88), rgba(12, 19, 34, .82));
+  box-shadow: 0 8px 26px rgba(0,0,0,.1);
+  transition: transform .24s ease, border-color .24s ease,
+              background .24s ease, box-shadow .24s ease;
+}
+
+.card::before {
+  position: absolute;
+  top: 0;
+  left: 24px;
+  width: 46px;
+  height: 2px;
+  content: "";
+  background: linear-gradient(90deg, var(--primary), var(--cyan));
+  opacity: .9;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(139, 120, 255, .45);
+  background: linear-gradient(145deg, rgba(25, 36, 63, .97), rgba(13, 21, 39, .95));
+  box-shadow: var(--shadow);
+}
+
+.card h3 {
+  margin: 13px 0 9px;
+  font-size: 17px;
+  letter-spacing: -.25px;
+  font-weight: 780;
+}
+
+.card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: 47px;
+  height: 47px;
+  border: 1px solid rgba(139, 120, 255, .24);
+  border-radius: 14px;
+  color: #c1b7ff;
+  background: linear-gradient(145deg, rgba(139,120,255,.17), rgba(69,213,245,.07));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
+  font-size: 23px;
+  line-height: 1;
+}
+
+#guide .button { margin-top: 9px; }
+
+footer {
+  padding: 40px 0 34px;
+  border-top: 1px solid var(--border);
+  background: #050810;
+  text-align: center;
+}
+
+footer .logo { justify-content: center; }
+
+footer p {
+  margin: 13px 0 8px;
+  color: #a4afc5;
+  font-size: 12px;
+}
+
+footer .small {
+  margin-top: 17px;
+  color: #77839a;
+  font-size: 11px;
+}
+
+@media (max-width: 850px) {
+  .header-inner { min-height: 72px; gap: 12px; }
+  nav { gap: 2px; }
+  nav a { padding: 8px 9px; }
   .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .hero { padding: 60px 0; }
+  h1 { letter-spacing: -2.2px; }
 }
-@media (max-width: 520px) {
-  .grid { grid-template-columns: 1fr; }
-  section { padding: 45px 0; }
-  h1 { font-size: 37px; }
+
+@media (max-width: 600px) {
+  .container { width: min(var(--container), calc(100% - 30px)); }
+  .header-inner {
+    padding: 13px 0 11px;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .logo { font-size: 22px; }
+  nav { justify-content: center; gap: 3px; }
+  nav a { padding: 6px 8px; font-size: 12px; }
+  .hero { padding: 66px 0 75px; }
+  h1 {
+    font-size: clamp(36px, 10vw, 49px);
+    letter-spacing: -1.8px;
+  }
+  .hero p:not(.eyebrow) {
+    margin: 19px auto 25px;
+    font-size: 15px;
+  }
+  section { padding: 52px 0; }
+  .grid { grid-template-columns: 1fr; gap: 14px; }
+  .card { padding: 23px; }
   .article p, .article li { font-size: 14px; }
+  .article h2 { margin-top: 29px; }
+  .heading { margin-bottom: 28px; }
 }
+
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
 }
 </style>
 </head>
@@ -286,108 +583,3 @@ footer .small { color: #8f9bb0; font-size: 11px; }
 </footer>
 </body>
 </html>
-￼Enterin: 0;
-  color: var(--text);
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.8;
-}
-a { color: inherit; text-decoration: none; }
-.container { width: min(1100px, calc(100% - 36px)); margin: auto; }
-header {
-  position: sticky; top: 0; z-index: 10;
-  background: #fffffffa; border-bottom: 1px solid var(--border);
-}
-.header-inner {
-  min-height: 72px; display: flex; align-items: center;
-  justify-content: space-between; gap: 20px;
-}
-.logo { font-size: 23px; font-weight: 800; letter-spacing: -1px; }
-.logo span { color: var(--primary); }
-nav { display: flex; gap: 20px; flex-wrap: wrap; }
-nav a { font-size: 13px; color: var(--muted); font-weight: bold; }
-nav a:hover { color: var(--primary); }
-.hero {
-  padding: 85px 0; text-align: center;
-  background: radial-gradient(circle at 80% 20%, #e9e3ff, transparent 38%), #f8f9ff;
-}
-.hero-content { max-width: 850px; }
-.eyebrow { color: var(--primary); font-size: 11px; font-weight: 800; letter-spacing: 2px; }
-h1, h2, h3 { line-height: 1.3; }
-h1 { font-size: clamp(35px, 6vw, 58px); line-height: 1.15; letter-spacing: -2px; }
-.hero p:not(.eyebrow) { max-width: 700px; margin: 20px auto 28px; color: var(--muted); }
-.button {
-  display: inline-block; padding: 12px 20px; border-radius: 9px;
-  background: var(--primary); color: white; font-weight: bold; font-size: 13px;
-}
-.button:hover { background: #5b40ce; }
-section { padding: 65px 0; }
-.soft { background: var(--soft); }
-.article { max-width: 850px; }
-.article h2 { margin: 30px 0 12px; font-size: clamp(25px, 3vw, 32px); }
-.article p, .article li { color: #505b70; font-size: 15px; line-height: 1.95; }
-.article strong { color: var(--text); }
-.heading { max-width: 720px; text-align: center; margin: 0 auto 32px; }
-.heading h2 { font-size: clamp(28px, 4vw, 38px); }
-.heading p { color: var(--muted); }
-.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
-.card { padding: 23px; border: 1px solid var(--border); border-radius: 15px; background: white; }
-.card h3 { font-size: 17px; margin-bottom: 8px; }
-.card p { font-size: 13px; line-height: 1.9; color: var(--muted); }
-.icon { font-size: 23px; color: var(--primary); }
-.article ul { padding-left: 23px; }
-.article li { margin-bottom: 12px; }
-footer { padding: 35px 0; background: #101827; color: white; text-align: center; }
-footer p { color: #b7c0d0; font-size: 12px; }
-footer .small { color: #8f9bb0; font-size: 11px; }
-@media (max-width: 750px) {
-  .header-inner { padding: 13px 0; flex-direction: column; }
-  nav { justify-content: center; gap: 10px 16px; }
-  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .hero { padding: 60px 0; }
-}
-@media (max-width: 520px) {
-  .grid { grid-template-columns: 1fr; }
-  section { padding: 45px 0; }
-  h1 { font-size: 37px; }
-  .article p, .article li { font-size: 14px; }
-}
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-}
-</style>
-</head>
-
-<body>
-<header>
-  <div class="container header-inner">
-    <a class="logo" href="/">TheMaster<span>AI</span></a>
-    <nav aria-label="Main navigation">
-      <a href="#categories">Categories</a>
-      <a href="#about">About</a>
-      <a href="#why-us">Why Us</a>
-      <a href="#guide">Guide</a>
-    </nav>
-  </div>
-</header>
-
-<main>
-<section class="hero">
-  <div class="container hero-content">
-    <p class="eyebrow">YOUR AI DISCOVERY HUB</p>
-    <h1>Discover the Best AI Tools for Every Task</h1>
-    <p>Explore AI software for writing, image generation, SEO, video creation, coding, and productivity. Find tools that match your goals and make everyday work easier.</p>
-    <a class="button" href="#categories">Explore AI Categories →</a>
-  </div>
-</section>
-
-<section id="about">
-  <div class="container article">
-    <p class="eyebrow">WELCOME TO THEMASTERAI</p>
-    <h2>Discover the Best AI Tools with TheMasterAI</h2>
-    <p>Artificial intelligence is transforming how people work, create content, learn new skills, and manage everyday tasks. From AI writing assistants and image generators to coding assistants and productivity software, digital solutions can help people approach many kinds of work. Finding the right software for a specific purpose, however, can take time.</p>
-    <p><strong>TheMasterAI</strong> is an AI tools directory created to help users discover artificial intelligence software for different tasks and workflows. Whether you are a student, blogger, content creator, digital marketer, developer, freelancer, or business owner, our directory provides a starting point for exploring AI-powered tools.</p>
-    <p>Instead of searching across multiple websites, you can begin with your goal and explore tools that may suit your needs. Our aim is to make AI discovery simpler, more organized, and accessible to people with different levels of technical experience.</p>
-
-    <h2>What Are AI Tools?</h2>
-    <p>AI tools are software applications that use artificial intelligence to assist with writing, research, image creation, video production, programming, communication, data analysis, and workflow automation. Depending on their capabilities, they may help users generate ideas, organize information, improve drafts, create digital assets, or handle repetitive activities.</p>
-    <p>Some applications specialize in one task, while others combine several features. The right choice depends on your requirements, budget, preferred workflow, and the quality of results you need.</p>
